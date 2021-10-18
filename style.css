@@ -43,20 +43,21 @@ header input {
   background-color: #eee;
   border: none;
   border-radius: 3px;
+  font-family: inherit;
   padding: 0.5rem 1rem;
 }
 
 header button {
   background-color: transparent;
   border: none;
-  color: #aaa;
+  color: rgb(109, 95, 110);
   font-size: 1.5rem;
   margin-left: 10px;
 }
 
 .fav-container {
   background-color: rgb(245, 219, 245);
-  padding: 1rem;
+  padding: 0.25rem 1rem;
   text-align: center;
 }
 
@@ -69,7 +70,26 @@ header button {
 }
 
 .fav-meals li {
+  position: relative;
   margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fav-meals li .clear {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  font-size: 1.2rem;
+}
+
+.fav-meals li:hover .clear {
+  opacity: 1;
 }
 
 .fav-meals li img {
@@ -84,9 +104,67 @@ header button {
 .fav-meals li span {
   font-size: 0.8rem;
   margin-top: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 75px;
+}
+
+.fav-meals li:hover span {
+  white-space: normal;
+  overflow: auto;
 }
 
 .fav-meal {
   display: flex;
   flex-direction: column;
+}
+
+.meal {
+  border-radius: 3px;
+  box-shadow: 0 0 10px 2px #3333331a;
+  margin: 1.5rem;
+  overflow: hidden;
+}
+
+.meal-header {
+  position: relative;
+}
+
+.meal-header .random {
+  position: absolute;
+  top: 1rem;
+  background-color: #fff;
+  padding: 0.25rem 1rem;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.meal-header img {
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
+
+.meal-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.meal-body h4 {
+  margin: 0;
+}
+
+.meal-body .fav-btn {
+  border: none;
+  background-color: transparent;
+  color: gray;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.meal-body .fav-btn.active {
+  color: rebeccapurple;
 }
